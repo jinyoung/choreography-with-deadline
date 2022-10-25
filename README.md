@@ -53,7 +53,7 @@ http :8088/orders/1   # APPROVED
 > kafka logs:
 ```
 {"eventType":"OrderCreated","timestamp":1666666399668,"id":7,"currencyId":"1","amount":500.0,"holderId":"jjy"}
-{"eventType":"ExchangeSucceed","timestamp":1666666399791,"id":null,"productId":null,"stock":null,"orderId":7,"userId":"jjy","point":500.0}
+{"eventType":"ExchangeSucceed","timestamp":1666666399791,"orderId":7,"userId":"jjy","point":500.0}
 {"eventType":"PointUsed","timestamp":1666666399861,"id":null,"userId":null,"point":9500.0,"orderId":7}
 {"eventType":"OrderPlaced","timestamp":1666666399911,"id":7,"holderId":"jjy"}
 ```
@@ -88,7 +88,7 @@ and create an order:
 http :8088/orders holderId="jjy" amount=500   
 ```
 
-start exchange service:
+restart exchange service:
 ```
 cd exchange
 mvn spring-boot:run
